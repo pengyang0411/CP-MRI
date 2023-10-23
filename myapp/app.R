@@ -5,9 +5,10 @@
 
 ## Load package
 library(shiny)
-library(shinyjs)
-library(shinyBS)
-library(DT)
+library(base64enc)
+# library(shinyjs)
+# library(shinyBS)
+# library(DT)
 CP <- base64enc::dataURI(file="CP.png", mime="image/png")
 
 ui <- fluidPage(

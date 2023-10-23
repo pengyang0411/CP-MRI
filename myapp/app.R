@@ -5,29 +5,25 @@
 
 ## Load package
 library(shiny)
-library(base64enc)
+# library(base64enc)
 # library(shinyjs)
 # library(shinyBS)
 # library(DT)
-CP <- base64enc::dataURI(file="CP.png", mime="image/png")
+# CP <- base64enc::dataURI(file="CP.png", mime="image/png")
 
 ui <- fluidPage(
-  # numericInput(inputId = "Num",
-  #              "Sample size", value = 15),
-  # plotOutput(outputId = "LinePlot")
   
   
   ##--------------------------- tags header --------------------------------##
-  tags$head(
-    tags$style(HTML("
-                    .shiny-output-error-validation {
-                    color: red;
-                    }
-                    ")),
-    
-    tags$style(HTML('#simu_btn{  width:100%; }')),
-    tags$style(HTML('#compBtnClick{  width:100%; }'))
-  ),
+  # tags$head(
+  #   tags$style(HTML(".shiny-output-error-validation {
+  #                   color: red;
+  #                   }
+  #                   ")),
+  #   
+  #   tags$style(HTML('#simu_btn{  width:100%; }')),
+  #   tags$style(HTML('#compBtnClick{  width:100%; }'))
+  # ),
   
   ##--------------------------- fixed Row --------------------------------##
   
@@ -60,18 +56,7 @@ ui <- fluidPage(
                 value = 'Introduction',
                 tags$strong(tags$p(tags$h4("Introduction", style="color:black"))),
                 br(),
-                column(5, tags$img(src = CP, height = '200px', width = '400px')
-                       ###   Input of endpoints  ###
-                       # wellPanel(style = "background-color: lightgrey;",
-                       #           div(
-                       #             fixedRow(
-                       #               ## Select the different endpoints
-                       #               column(10,tags$h4("Endpoints:")),
-                       #               ## Choice of binary and continuous
-                       #               column(10, radioButtons("endpoints", label = NULL, choices = c('Binary', 'Continuous'), inline = T))
-                       #             )
-                       #           )
-                       # )
+                column(5, #tags$img(src = CP, height = '200px', width = '400px')
                 ),
                 column(5, tabsetPanel( id = "OCtabs",
                                        tabPanel(tags$h4( tags$strong("CP-MRI Score for CP"),
@@ -79,17 +64,6 @@ ui <- fluidPage(
                                                 value = 1,
                                                 br(), 
                                                 column(12, htmlOutput("opt_intro"))
-                                                # br(),
-                                                # column(12, plotOutput("CP_plot", width="60%", height="700px"))
-                                                
-                                                # dataTableOutput("OC_table"),
-                                                # column(12,br()),
-                                                # uiOutput("OC_plot_download")
-                                                # uiOutput("OC_plot_caption")
-                                                # column(12, htmlOutput("OC_plot_caption")),
-                                                # column(12,downloadButton("download_OC_plot",HTML("Download OC plot"))),
-                                                # column(12,plotOutput("OC_plot", width="60%", height="700px"))
-                                                
                                        )))
               ), ## End of introduction
               
